@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { signUp, checkUsernameAvailability } from '@/lib/auth'
 import Header from '@/components/Header'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -49,21 +49,23 @@ export default function SignUpPage() {
     }
 
     try {
-      // Sign up the user
-      const { data, error: signUpError } = await supabase.auth.signUp({
+      // Check username availability first
+      const isUsernameAvailable = await checkUsernameAvailability(formData.username)
+      if (!isUsernameAvailable) {
+        setError('Username is already taken. Please choose another.')
+        setLoading(false)
+        return
+      }
+
+      // Sign up the user using the new auth system
+      const { user } = await signUp({
         email: formData.email,
         password: formData.password,
-        options: {
-          data: {
-            username: formData.username,
-            full_name: formData.fullName,
-            discord_username: formData.discordUsername,
-            vr_experience_level: formData.vrExperience,
-          }
-        }
+        username: formData.username,
+        fullName: formData.fullName,
+        discordUsername: formData.discordUsername,
+        vrExperience: formData.vrExperience as 'beginner' | 'intermediate' | 'advanced' | 'expert'
       })
-
-      if (signUpError) throw signUpError
 
       setSuccess('Account created successfully! Check your email for the confirmation link.')
       

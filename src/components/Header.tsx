@@ -60,9 +60,9 @@ export default function Header() {
         </div>
         <nav>
           <ul className="nav-links">
-            <li><Link href="/" className="nav-link active">Royal Tournaments</Link></li>
+            <li><Link href="/" className="nav-link">Royal Tournaments</Link></li>
             <li><Link href="/leaderboard" className="nav-link">Hall of Lords</Link></li>
-            <li><Link href="/profile" className="nav-link">My Battles</Link></li>
+            <li><Link href="/dashboard" className="nav-link">My Battles</Link></li>
           </ul>
         </nav>
       </div>
