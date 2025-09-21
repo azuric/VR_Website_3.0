@@ -233,11 +233,10 @@ export default function HomePage() {
           ) : (
             <div className="grid grid-2 tournament-cards-container">
               {tournaments.slice(0, 4).map((tournament, index) => (
-                <div key={tournament.id} className="feature-card scroll-reveal" style={{
+                <div key={tournament.id} className="tournament-card-animated slide-in" style={{
                   background: 'linear-gradient(135deg, rgba(30, 30, 46, 0.95) 0%, rgba(26, 26, 36, 0.95) 100%)',
                   border: '1px solid rgba(0, 212, 255, 0.2)',
                   borderRadius: '20px',
-                  padding: '0',
                   overflow: 'hidden',
                   backdropFilter: 'blur(20px)',
                   transition: 'all 0.3s ease',
