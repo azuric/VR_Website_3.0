@@ -1,4 +1,4 @@
--- Lords of Esport Database Schema
+-- Lords of Esport Database Schema (Supabase Compatible)
 -- Run this in your Supabase SQL Editor
 
 -- Create profiles table (extends auth.users)
@@ -240,15 +240,6 @@ CREATE POLICY "Users can leave teams" ON public.team_members
 CREATE POLICY "Tournaments are viewable by everyone" ON public.tournaments
   FOR SELECT USING (true);
 
-CREATE POLICY "Admins can manage tournaments" ON public.tournaments
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM public.profiles 
-      WHERE id = auth.uid() 
-      AND membership_tier IN ('admin', 'vip')
-    )
-  );
-
 -- RLS Policies for tournament_registrations
 CREATE POLICY "Users can view their registrations" ON public.tournament_registrations
   FOR SELECT USING (
@@ -295,12 +286,14 @@ CREATE INDEX IF NOT EXISTS idx_notifications_user_unread ON public.notifications
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
-  INSERT INTO public.profiles (id, username, full_name, avatar_url)
+  INSERT INTO public.profiles (id, username, full_name, avatar_url, discord_username, vr_experience_level)
   VALUES (
     NEW.id,
     COALESCE(NEW.raw_user_meta_data->>'username', split_part(NEW.email, '@', 1)),
     COALESCE(NEW.raw_user_meta_data->>'full_name', ''),
-    COALESCE(NEW.raw_user_meta_data->>'avatar_url', '')
+    COALESCE(NEW.raw_user_meta_data->>'avatar_url', ''),
+    COALESCE(NEW.raw_user_meta_data->>'discord_username', ''),
+    COALESCE(NEW.raw_user_meta_data->>'vr_experience_level', 'beginner')
   );
   RETURN NEW;
 END;

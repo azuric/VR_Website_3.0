@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { getTournaments } from '@/lib/supabase'
-import Header from '@/components/Header'
 import Link from 'next/link'
 import { Trophy, Users, Zap, Crown, Sword, Shield, ChevronRight, Play, Star } from 'lucide-react'
 
@@ -82,19 +81,14 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
-        <Header />
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="loading"></div>
-        </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="loading"></div>
       </div>
     )
   }
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -152,7 +146,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold">Royal Competition</h3>
               </div>
-              <p>Compete in elite VR tournaments with the finest warriors across the UK. Prove your worth in Population One&apos;s most prestigious battles.</p>
+              <p>Compete in elite VR tournaments with the finest warriors across the UK. Prove your worth in Population One's most prestigious battles.</p>
             </div>
 
             <div className="card scroll-reveal animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
