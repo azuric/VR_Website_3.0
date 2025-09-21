@@ -208,11 +208,13 @@ export default function HomePage() {
       {/* Tournaments Section */}
       <section className="section">
         <div className="container">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-16">
             <h2 className="section-title text-left mb-0 scroll-reveal">Royal Tournaments</h2>
-            <Link href="/tournaments" className="btn btn-secondary scroll-reveal">
-              View All
-              <ChevronRight className="w-4 h-4" />
+            <Link href="/tournaments" className="btn-futuristic btn-secondary-futuristic scroll-reveal" style={{ padding: '0.75rem 1.5rem', marginTop: '1rem' }}>
+              <span className="btn-text">
+                View All
+                <ChevronRight className="w-4 h-4 btn-icon" />
+              </span>
             </Link>
           </div>
 
@@ -258,14 +260,14 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="flex gap-3">
-                      <button className="btn-futuristic btn-primary-futuristic flex-1">
+                    <div className="flex gap-4">
+                      <button className="btn-futuristic btn-primary-futuristic flex-1" style={{ padding: '0.75rem 1.5rem' }}>
                         <span className="btn-text">
                           <Zap className="w-4 h-4 btn-icon" />
                           Register Now
                         </span>
                       </button>
-                      <button className="btn-futuristic btn-secondary-futuristic">
+                      <button className="btn-futuristic btn-secondary-futuristic flex-1" style={{ padding: '0.75rem 1.5rem' }}>
                         <span className="btn-text">
                           Learn More
                         </span>
@@ -291,8 +293,8 @@ export default function HomePage() {
             </p>
             
             {!user && (
-              <div className="btn-group scroll-reveal" style={{ animationDelay: '0.4s' }}>
-                <Link href="/signup" className="btn-futuristic btn-primary-futuristic btn-large-futuristic btn-pulse-futuristic btn-particles">
+              <div className="btn-group scroll-reveal" style={{ animationDelay: '0.4s', gap: '2rem' }}>
+                <Link href="/signup" className="btn-futuristic btn-primary-futuristic btn-large-futuristic btn-glow-futuristic">
                   <span className="btn-text">
                     <Crown className="w-5 h-5 btn-icon" />
                     Claim Your Throne

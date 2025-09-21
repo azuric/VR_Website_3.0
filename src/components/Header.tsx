@@ -63,17 +63,9 @@ export default function Header() {
             <li><Link href="/" className="nav-link">Royal Tournaments</Link></li>
             <li><Link href="/leaderboard" className="nav-link">Hall of Lords</Link></li>
             <li><Link href="/dashboard" className="nav-link">My Battles</Link></li>
+            <li><Link href="/login" className="nav-link">Sign In</Link></li>
+            <li><Link href="/signup" className="nav-link">Join Lords</Link></li>
           </ul>
-          
-          {/* Auth buttons for mobile/desktop */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="/login" className="btn-secondary px-4 py-2 rounded-lg text-sm font-semibold">
-              Sign In
-            </Link>
-            <Link href="/signup" className="btn-primary px-4 py-2 rounded-lg text-sm font-semibold">
-              Join Lords
-            </Link>
-          </div>
         </nav>
       </div>
     </header>
