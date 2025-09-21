@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { getTournaments } from '@/lib/supabase'
-import Header from '@/components/Header'
 import Link from 'next/link'
 import { Trophy, Users, Zap, Crown, Sword, Shield, ChevronRight, Play, Star } from 'lucide-react'
 
@@ -46,14 +45,13 @@ export default function HomePage() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed')
-          entry.target.classList.add('slide-in')
         }
       })
     }, observerOptions)
 
-    // Observe all scroll-reveal and animated elements
+    // Observe all scroll-reveal elements
     setTimeout(() => {
-      document.querySelectorAll('.scroll-reveal, .tournament-card-animated, .feature-card-animated, .stats-item-animated, .slide-in-left, .slide-in-right, .slide-in-up').forEach(el => {
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
         observer.observe(el)
       })
     }, 100)
@@ -83,19 +81,14 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
-        <Header />
-        <div className="flex items-center justify-center min-h-[400px]">
-          <div className="loading"></div>
-        </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="loading"></div>
       </div>
     )
   }
 
   return (
     <div className="min-h-screen">
-      <Header />
-      
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -108,32 +101,24 @@ export default function HomePage() {
           
           {!user ? (
             <div className="btn-group animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Link href="/login" className="btn-futuristic btn-primary-futuristic btn-large-futuristic btn-glow-futuristic btn-holographic">
-                <span className="btn-text">
-                  <Play className="w-5 h-5 btn-icon" />
-                  Join The Battle
-                </span>
+              <Link href="/login" className="btn btn-primary btn-large">
+                <Play className="w-5 h-5" />
+                Join The Battle
               </Link>
-              <Link href="/signup" className="btn-futuristic btn-secondary-futuristic btn-large-futuristic btn-neon-border">
-                <span className="btn-text">
-                  <Crown className="w-5 h-5 btn-icon" />
-                  Become a Lord
-                </span>
+              <Link href="/signup" className="btn btn-secondary btn-large">
+                <Crown className="w-5 h-5" />
+                Become a Lord
               </Link>
             </div>
           ) : (
             <div className="btn-group animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <Link href="/dashboard" className="btn-futuristic btn-primary-futuristic btn-large-futuristic btn-3d-futuristic">
-                <span className="btn-text">
-                  <Shield className="w-5 h-5 btn-icon" />
-                  Enter Your Realm
-                </span>
+              <Link href="/dashboard" className="btn btn-primary btn-large">
+                <Shield className="w-5 h-5" />
+                Enter Your Realm
               </Link>
-              <Link href="/leaderboard" className="btn-futuristic btn-secondary-futuristic btn-large-futuristic btn-particles">
-                <span className="btn-text">
-                  <Trophy className="w-5 h-5 btn-icon" />
-                  Hall of Lords
-                </span>
+              <Link href="/leaderboard" className="btn btn-secondary btn-large">
+                <Trophy className="w-5 h-5" />
+                Hall of Lords
               </Link>
             </div>
           )}
@@ -154,27 +139,33 @@ export default function HomePage() {
           <h2 className="section-title scroll-reveal">Forge Your Legend</h2>
           
           <div className="grid grid-3">
-            <div className="feature-card-animated slide-in-left">
-              <div className="feature-icon-animated">
-                <Crown className="w-6 h-6 text-white" />
+            <div className="card scroll-reveal animate-fade-in-left">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                  <Crown className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">Royal Competition</h3>
               </div>
-              <h3 className="text-xl font-bold mb-3">Royal Competition</h3>
-              <p>Compete in elite VR tournaments with the finest warriors across the UK. Prove your worth in Population One&apos;s most prestigious battles.</p>
+              <p>Compete in elite VR tournaments with the finest warriors across the UK. Prove your worth in Population One's most prestigious battles.</p>
             </div>
 
-            <div className="feature-card-animated slide-in-up" style={{ transitionDelay: '0.2s' }}>
-              <div className="feature-icon-animated">
-                <Users className="w-6 h-6 text-white" />
+            <div className="card scroll-reveal animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">Noble Alliance</h3>
               </div>
-              <h3 className="text-xl font-bold mb-3">Noble Alliance</h3>
               <p>Join forces with fellow lords, form unbreakable teams, and dominate the virtual battlefield together as one unstoppable force.</p>
             </div>
 
-            <div className="feature-card-animated slide-in-right" style={{ transitionDelay: '0.4s' }}>
-              <div className="feature-icon-animated">
-                <Trophy className="w-6 h-6 text-white" />
+            <div className="card scroll-reveal animate-fade-in-right" style={{ animationDelay: '0.4s' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">Ascend to Glory</h3>
               </div>
-              <h3 className="text-xl font-bold mb-3">Ascend to Glory</h3>
               <p>Rise through the ranks, earn legendary status, and claim your rightful place among the greatest VR esports champions.</p>
             </div>
           </div>
@@ -208,19 +199,11 @@ export default function HomePage() {
       {/* Tournaments Section */}
       <section className="section">
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '3rem' }}>
+          <div className="flex items-center justify-between mb-12">
             <h2 className="section-title text-left mb-0 scroll-reveal">Royal Tournaments</h2>
-            <Link href="/tournaments" className="btn-futuristic btn-secondary-futuristic scroll-reveal" style={{ 
-              padding: '0.75rem 1.5rem',
-              marginTop: '1rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem'
-            }}>
-              <span className="btn-text">
-                View All
-                <ChevronRight className="w-4 h-4 btn-icon" />
-              </span>
+            <Link href="/tournaments" className="btn btn-secondary scroll-reveal">
+              View All
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -231,21 +214,10 @@ export default function HomePage() {
               <p className="text-gray-400">Epic battles are being prepared. Stay tuned for legendary competitions.</p>
             </div>
           ) : (
-            <div className="grid grid-2 tournament-cards-container">
+            <div className="grid grid-2">
               {tournaments.slice(0, 4).map((tournament, index) => (
-                <div key={tournament.id} className="tournament-card-animated slide-in glow-pulse" style={{
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.8)'
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.3)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.2)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}>
-                  <div className="tournament-card-header-animated">
+                <div key={tournament.id} className="tournament-card scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="tournament-card-header">
                     <div className="flex items-center justify-between">
                       <h3 className="font-bold">{tournament.name}</h3>
                       <div className="flex items-center gap-1">
@@ -255,13 +227,13 @@ export default function HomePage() {
                     </div>
                   </div>
                   
-                  <div className="tournament-card-content-animated">
+                  <div className="tournament-card-content">
                     <p className="text-gray-300 mb-4">{tournament.description}</p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div>
                         <div className="text-sm text-gray-400">Prize Pool</div>
-                        <div className="text-lg font-bold prize-pool-animated">£{tournament.prize_pool}</div>
+                        <div className="text-lg font-bold text-gradient">£{tournament.prize_pool}</div>
                       </div>
                       <div>
                         <div className="text-sm text-gray-400">Participants</div>
@@ -277,31 +249,13 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                      <button className="btn-futuristic btn-primary-futuristic" style={{ 
-                        flex: 1, 
-                        padding: '0.75rem 1.5rem',
-                        minHeight: '48px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <span className="btn-text">
-                          <Zap className="w-4 h-4 btn-icon" />
-                          Register Now
-                        </span>
+                    <div className="flex gap-3">
+                      <button className="btn btn-primary flex-1">
+                        <Zap className="w-4 h-4" />
+                        Register Now
                       </button>
-                      <button className="btn-futuristic btn-secondary-futuristic" style={{ 
-                        flex: 1, 
-                        padding: '0.75rem 1.5rem',
-                        minHeight: '48px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <span className="btn-text">
-                          Learn More
-                        </span>
+                      <button className="btn btn-secondary">
+                        Learn More
                       </button>
                     </div>
                   </div>
@@ -324,24 +278,14 @@ export default function HomePage() {
             </p>
             
             {!user && (
-              <div style={{ 
-                display: 'flex', 
-                gap: '2rem', 
-                justifyContent: 'center', 
-                alignItems: 'center',
-                flexWrap: 'wrap'
-              }} className="scroll-reveal">
-                <Link href="/signup" className="btn-futuristic btn-primary-futuristic btn-large-futuristic">
-                  <span className="btn-text">
-                    <Crown className="w-5 h-5 btn-icon" />
-                    Claim Your Throne
-                  </span>
+              <div className="btn-group scroll-reveal" style={{ animationDelay: '0.4s' }}>
+                <Link href="/signup" className="btn btn-primary btn-large animate-glow">
+                  <Crown className="w-5 h-5" />
+                  Claim Your Throne
                 </Link>
-                <Link href="/leaderboard" className="btn-futuristic btn-secondary-futuristic btn-large-futuristic btn-neon-border">
-                  <span className="btn-text">
-                    <Trophy className="w-5 h-5 btn-icon" />
-                    View Champions
-                  </span>
+                <Link href="/leaderboard" className="btn btn-secondary btn-large">
+                  <Trophy className="w-5 h-5" />
+                  View Champions
                 </Link>
               </div>
             )}

@@ -1,0 +1,515 @@
+/* Import the premium design system */
+@import './globals-premium.css';
+@import './futuristic-buttons.css';
+@import './card-animations.css';
+
+/* Lords of Esport Color Palette */
+:root {
+  /* Primary Brand Colors */
+  --deep-navy: #0A0E1A;
+  --dark-slate: #1E293B;
+  --midnight-blue: #0F172A;
+  
+  /* Accent Colors */
+  --cyber-cyan: #00D4FF;
+  --electric-teal: #06B6D4;
+  --bright-cyan: #22D3EE;
+  
+  /* Neutral Colors */
+  --silver: #E5E7EB;
+  --light-gray: #F8FAFC;
+  --medium-gray: #94A3B8;
+  --dark-gray: #475569;
+  
+  /* Semantic Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: var(--cyber-cyan);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--deep-navy);
+  color: var(--light-gray);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  background: linear-gradient(135deg, var(--deep-navy) 0%, var(--dark-slate) 100%);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.hero .brand-highlight {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--medium-gray);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Feature Cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, var(--dark-slate) 0%, var(--midnight-blue) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.feature-card:hover {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--electric-teal) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light-gray);
+}
+
+.feature-card p {
+  color: var(--medium-gray);
+}
+
+/* Tournament Cards */
+.tournaments {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tournament-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.tournament-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.detail-item {
+  color: var(--medium-gray);
+}
+
+.detail-value {
+  color: var(--light-gray);
+  font-weight: 600;
+}
+
+.prize-pool {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Auth Forms */
+.auth-form {
+  background: linear-gradient(135deg, var(--dark-slate) 0%, var(--midnight-blue) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--light-gray);
+  font-weight: 500;
+}
+
+/* Typography */
+.royal-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+/* Logo Styles */
+.lords-logo {
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.lords-logo:hover {
+  filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--electric-teal) 100%);
+  border: none;
+  color: var(--deep-navy);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--electric-teal);
+  color: var(--electric-teal);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--electric-teal);
+  color: var(--deep-navy);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+/* Card Styles */
+.lords-card {
+  background: linear-gradient(135deg, var(--dark-slate) 0%, var(--midnight-blue) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.lords-card:hover {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Tournament Card Styles */
+.tournament-card {
+  background: linear-gradient(135deg, var(--dark-slate) 0%, var(--midnight-blue) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tournament-card:hover {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
+  transform: translateY(-6px);
+}
+
+.tournament-card-header {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--electric-teal) 100%);
+  color: var(--deep-navy);
+  padding: 1rem;
+  font-weight: 700;
+}
+
+/* Navigation Styles */
+.nav-link {
+  color: var(--medium-gray);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--cyber-cyan);
+}
+
+.nav-link.active {
+  color: var(--cyber-cyan);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-cyan) 0%, var(--bright-cyan) 100%);
+  border-radius: 1px;
+}
+
+/* Form Styles */
+.form-input {
+  background: var(--midnight-blue);
+  border: 2px solid var(--dark-gray);
+  color: var(--light-gray);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--medium-gray);
+}
+
+/* Status Indicators */
+.status-online {
+  color: var(--success);
+}
+
+.status-offline {
+  color: var(--medium-gray);
+}
+
+.status-warning {
+  color: var(--warning);
+}
+
+.status-error {
+  color: var(--error);
+}
+
+/* Leaderboard Styles */
+.leaderboard-rank-1 {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: var(--deep-navy);
+}
+
+.leaderboard-rank-2 {
+  background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%);
+  color: var(--deep-navy);
+}
+
+.leaderboard-rank-3 {
+  background: linear-gradient(135deg, #CD7F32 0%, #B8860B 100%);
+  color: var(--light-gray);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-slate);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--cyber-cyan) 0%, var(--electric-teal) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--bright-cyan) 0%, var(--cyber-cyan) 100%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .lords-card {
+    margin: 0.5rem;
+  }
+  
+  .tournament-card {
+    margin: 0.5rem 0;
+  }
+  
+  .royal-title {
+    font-size: 2rem;
+  }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .lords-card,
+  .tournament-card {
+    border: 1px solid #ccc;
+    background: white;
+  }
+}
+
