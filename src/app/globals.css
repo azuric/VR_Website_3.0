@@ -1,5 +1,7 @@
 /* Import the premium design system */
 @import './globals-premium.css';
+@import './futuristic-buttons.css';
+@import './card-animations.css';
 
 /* Lords of Esport Color Palette */
 :root {
