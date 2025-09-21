@@ -233,7 +233,13 @@ export default function HomePage() {
           ) : (
             <div className="grid grid-2 tournament-cards-container">
               {tournaments.slice(0, 4).map((tournament, index) => (
-                <div key={tournament.id} className="tournament-card-animated slide-in glow-pulse" style={{
+                <div key={tournament.id} className="feature-card scroll-reveal" style={{
+                  background: 'linear-gradient(135deg, rgba(30, 30, 46, 0.95) 0%, rgba(26, 26, 36, 0.95) 100%)',
+                  border: '1px solid rgba(0, 212, 255, 0.2)',
+                  borderRadius: '20px',
+                  padding: '0',
+                  overflow: 'hidden',
+                  backdropFilter: 'blur(20px)',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer'
                 }}
@@ -245,7 +251,11 @@ export default function HomePage() {
                   e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.2)'
                   e.currentTarget.style.boxShadow = 'none'
                 }}>
-                  <div className="tournament-card-header-animated">
+                  <div style={{
+                    background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006699 100%)',
+                    color: 'white',
+                    padding: '1.5rem'
+                  }}>
                     <div className="flex items-center justify-between">
                       <h3 className="font-bold">{tournament.name}</h3>
                       <div className="flex items-center gap-1">
@@ -255,7 +265,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   
-                  <div className="tournament-card-content-animated">
+                  <div style={{ padding: '1.5rem' }}>
                     <p className="text-gray-300 mb-4">{tournament.description}</p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
@@ -331,7 +341,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 flexWrap: 'wrap'
               }} className="scroll-reveal">
-                <Link href="/signup" className="btn-futuristic btn-primary-futuristic btn-large-futuristic">
+                <Link href="/signup" className="btn-futuristic btn-primary-futuristic btn-large-futuristic btn-glow-futuristic btn-holographic">
                   <span className="btn-text">
                     <Crown className="w-5 h-5 btn-icon" />
                     Claim Your Throne
