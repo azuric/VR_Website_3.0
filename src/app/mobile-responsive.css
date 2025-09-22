@@ -1,0 +1,252 @@
+/* Mobile Responsive Fixes for Lords of Esport */
+
+/* Base Mobile Styles */
+@media (max-width: 768px) {
+  /* Header Mobile Fixes */
+  header {
+    padding: 0.75rem 0 !important;
+  }
+  
+  header > div {
+    padding: 0 1rem !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  /* Logo Mobile */
+  header a[href="/"] {
+    font-size: 1.25rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  header svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  /* Navigation Mobile */
+  nav ul {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  nav ul li a {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  /* Hero Section Mobile */
+  .hero-content {
+    padding: 8rem 1rem 4rem 1rem !important;
+    text-align: center !important;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-content p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Button Groups Mobile */
+  .btn-group {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+  
+  .btn-group a {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Feature Cards Mobile */
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .feature-card {
+    margin: 0 !important;
+  }
+  
+  /* Tournament Cards Mobile */
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .tournament-card-animated {
+    margin: 0 !important;
+  }
+  
+  /* Tournament Card Content Mobile */
+  .tournament-card-header-animated,
+  .tournament-card-content-animated {
+    padding: 1rem !important;
+  }
+  
+  .tournament-card-header-animated h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  .tournament-card-content-animated p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Tournament Card Buttons Mobile */
+  .tournament-card-content-animated .btn-group {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  
+  .tournament-card-content-animated .btn-group a {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Section Spacing Mobile */
+  section {
+    padding: 3rem 1rem !important;
+  }
+  
+  .section-title {
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* CTA Section Mobile */
+  .cta-section {
+    padding: 3rem 1rem !important;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .cta-section p {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Stats Grid Mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .stat-card {
+    padding: 1rem !important;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  .stat-card p {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .hero-content h1 {
+    font-size: 2rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .btn-group a {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Stats Grid Single Column */
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Header Extra Small */
+  header > div {
+    padding: 0 0.75rem !important;
+  }
+  
+  nav ul {
+    gap: 0.5rem !important;
+  }
+  
+  nav ul li a {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-content {
+    padding: 6rem 1rem 2rem 1rem !important;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem !important;
+  }
+  
+  .btn-group {
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+  
+  .btn-group a {
+    width: auto !important;
+    min-width: 200px !important;
+  }
+}
+
+/* Touch Improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices */
+  .btn-futuristic,
+  .tournament-card-animated,
+  .feature-card {
+    transform: none !important;
+  }
+  
+  .btn-futuristic:active {
+    transform: scale(0.98) !important;
+  }
+  
+  .tournament-card-animated:active,
+  .feature-card:active {
+    transform: scale(0.99) !important;
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .hero-content {
+    min-height: calc(100vh - 100px) !important;
+  }
+}

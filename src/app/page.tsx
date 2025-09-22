@@ -96,8 +96,20 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="hero">
+        <video 
+          className="hero-video-background"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          preload="auto"
+        >
+          <source src="/hero-background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="hero-video-overlay"></div>
         <div className="hero-content">
           <h1 className="animate-fade-in-up">
             Welcome to <span className="brand-highlight">Lords of Esport</span>
