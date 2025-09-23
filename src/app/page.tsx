@@ -165,29 +165,29 @@ export default function HomePage() {
         <div className="container">
           <h2 className="section-title scroll-reveal">Forge Your Legend</h2>
           
-          <div className="grid grid-3">
-            <div className="feature-card-animated slide-in-left">
-              <div className="feature-icon-animated">
-                <Crown className="w-6 h-6 text-white" />
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Crown className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Royal Competition</h3>
-              <p>Compete in elite VR tournaments with the finest warriors across the UK. Prove your worth in Population One&apos;s most prestigious battles.</p>
+              <h3>Royal Competition</h3>
+              <p>Compete in elite VR tournaments with the finest warriors across the UK.</p>
             </div>
 
-            <div className="feature-card-animated slide-in-up" style={{ transitionDelay: '0.2s' }}>
-              <div className="feature-icon-animated">
-                <Users className="w-6 h-6 text-white" />
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Users className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Noble Alliance</h3>
-              <p>Join forces with fellow lords, form unbreakable teams, and dominate the virtual battlefield together as one unstoppable force.</p>
+              <h3>Noble Alliance</h3>
+              <p>Join forces with fellow lords and dominate the virtual battlefield together.</p>
             </div>
 
-            <div className="feature-card-animated slide-in-right" style={{ transitionDelay: '0.4s' }}>
-              <div className="feature-icon-animated">
-                <Trophy className="w-6 h-6 text-white" />
+            <div className="feature-card">
+              <div className="feature-icon">
+                <Trophy className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Ascend to Glory</h3>
-              <p>Rise through the ranks, earn legendary status, and claim your rightful place among the greatest VR esports champions.</p>
+              <h3>Ascend to Glory</h3>
+              <p>Rise through the ranks and claim your place among VR esports champions.</p>
             </div>
           </div>
         </div>

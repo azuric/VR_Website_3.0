@@ -1,5 +1,5 @@
 /* Lords of Esport - Premium Design System */
-/* Google Fonts import removed to fix CSS parsing error */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* CSS Variables - Premium Color Palette */
 :root {
@@ -235,7 +235,7 @@ p {
   width: 100%;
 }
 
-/* Hero Section with Video Background Support */
+/* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -244,13 +244,21 @@ p {
   justify-content: center;
   text-align: center;
   position: relative;
-  background: var(--gradient-bg); /* Fallback background */
+  background: var(--gradient-bg);
   overflow: hidden;
 }
 
-/* Remove the overlay when video background is present */
 .hero::before {
-  display: none !important;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -272,16 +280,22 @@ p {
 }
 
 .brand-highlight {
-  color: var(--primary-cyan) !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background-clip: unset !important;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
 }
 
 .brand-highlight::after {
-  display: none !important;
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: 1px;
 }
 
 /* Premium Button Styles */
