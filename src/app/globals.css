@@ -1,7 +1,10 @@
+/* Import Google Fonts first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 /* Import the premium design system */
-@import './globals-premium.css';
 @import './futuristic-buttons.css';
 @import './card-animations.css';
+@import './globals-premium.css';
 
 /* Lords of Esport Color Palette */
 :root {
@@ -110,16 +113,17 @@ body {
   padding: 4rem 2rem;
 }
 
-/* Hero Section with Video Background */
+/* Hero Section with Video Background - Override Premium Styles */
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  animation: fadeIn 0.8s ease-out;
+  position: relative !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  animation: fadeIn 0.8s ease-out !important;
+  background: none !important; /* Remove any background from premium CSS */
 }
 
 .hero-video-background {
@@ -620,4 +624,52 @@ body {
   .hero {
     background: linear-gradient(135deg, var(--deep-navy) 0%, var(--dark-slate) 100%);
   }
+}
+
+
+/* Essential Video Background Styles */
+.hero-video-background {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  z-index: -2 !important;
+  transform: translate(-50%, -50%) !important;
+  object-fit: cover !important;
+  filter: brightness(0.6) contrast(1.0) saturate(0.7) blur(0.5px) !important;
+}
+
+.hero-video-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 14, 26, 0.7) 0%,
+    rgba(30, 41, 59, 0.5) 50%,
+    rgba(10, 14, 26, 0.8) 100%
+  ) !important;
+  z-index: -1 !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+}
+
+/* Ensure brand highlight is clean blue */
+.brand-highlight {
+  color: #00D4FF !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
 }
